@@ -1,0 +1,29 @@
+.sunIcon {
+  height: 100px;
+  width: 100px;
+  color: rgb(224, 224, 8);
+  object-fit: fill;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  animation: rotateInfinity 15s linear infinite; 
+}
+
+.cloudIcon{
+  height: 50px;
+  width: 50px;
+  color: rgb(218, 204, 204);
+  
+ 
+}
+
+@keyframes rotateInfinity {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
