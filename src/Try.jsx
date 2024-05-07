@@ -213,7 +213,7 @@ const Try = () => {
       {loading ? (<div>Loading</div>) : (<div className=' w-full h-[100vh]  '>
 
         <div className='w-[100vw] p-0 m-0 md:flex md:justify-center md:items-center md:gap-3 md:h-full md:max-w-[1340px] md:mx-auto md:px-4'>
-          <div className='  flex flex-col w-[100vw] bg-blue-500 rounded-lg px-2 gap-8 md:min-w-[450px] md:w-auto'>
+          <div className='  flex flex-col w-[100vw] bg-blue-500 rounded-lg px-2 gap-8 md:min-h-[374px] md:min-w-[450px] md:w-auto'>
 
 {/* track back ko lagi heading ho  */}
 
