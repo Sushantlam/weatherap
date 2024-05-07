@@ -65,7 +65,7 @@ const Try = () => {
         temperature_unit: temperatureUnit,
         daily: ["weather_code", "temperature_2m_max", "temperature_2m_min", "wind_speed_10m_max", "rain_sum"],
         wind_speed_unit: "mph",
-        timezone: "auto",
+        timezone: "Asia/Tokyo",
         forecast_days: 5
       };
       const url = "https://api.open-meteo.com/v1/forecast";
@@ -224,7 +224,7 @@ const Try = () => {
               </div>
             )}
   {/* today ko weather fetch  */}
-            {climateApi?.time?.slice(0, 1).map((time, index) => (
+           {loading ? (<div>Loading</div>) : (climateApi?.time?.slice(0, 1).map((time, index) => (
               <div className=' flex flex-col justify-between items-center gap-3  md:flex-row md:justify-between md:px-3 md:gap-5 md:items-center  md:pr-4' key={index}>
                 <div className="sun-icon">
 
@@ -235,15 +235,18 @@ const Try = () => {
 
                   
                   <p className=' text-center text-sm font-sans text-gray-300'> {climateApi?.temperature_2m_max?.[index]?.toFixed(2)} / {climateApi?.temperature_2m_min?.[index]?.toFixed(2)}  </p>
-                  <small className=' text-center'>  {time.toLocaleDateString('en-US', { weekday: 'long' })}</small>
+            
                 </div>
 
                 <div className=' flex justify-between items-center gap-4 md:flex md:flex-col md:gap-2 jmd:ustify-between md:items-center'>
 
                   <div className=' flex justify-between gap-2 items-center'>
                     <FaUmbrella size={15} color='white' />
-                    <p>{climateApi?.rain_sum[currentIndex]?.toFixed(2)} <small>%</small></p>
-
+                    {climateApi?.rain_sum[currentIndex] !== null && climateApi?.rain_sum[currentIndex] !== undefined && (
+  <p>
+    {climateApi?.rain_sum[currentIndex]?.toFixed(2)  } <small>%</small>
+  </p>
+)}
 
                   </div>
 
@@ -259,7 +262,7 @@ const Try = () => {
 
 
               </div>
-            ))}
+            )))}
 
             <div className=' flex flex-col md:flex-row md:justify-between'>
 
@@ -277,7 +280,9 @@ const Try = () => {
 
                 
                     <p className=' text-center text-sm font-sans text-gray-300'> {climateApi?.temperature_2m_max?.[index]?.toFixed(2)} / {climateApi?.temperature_2m_min?.[index]?.toFixed(2)}  </p>
-                    <small className=' text-center'>  {time.toLocaleDateString('en-US', { weekday: 'long' })}</small>
+                    <small className='text-center'>
+  {index === 0 ? "Tom" : time.toLocaleDateString('en-US', { weekday: 'long' })}
+</small>
                   </div>
 
 
